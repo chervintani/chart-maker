@@ -15,16 +15,34 @@
         </center>
     </div>
     <div>
-        <input type="text" placeholder="Value" id="input" />
+        <input type="text" placeholder="Value" id="firstname" />
+        <input type="text" placeholder="Value" id="lastname" />
         <button type="submit">Submit</button>
     </div>
 </body>
 <script>
     var input = document.getElementById("input")
+    var content = []
     $('button').on('click', function () {
-        console.log($('#input').val())
+        
+        let fname = $('#firstname').val()
+        let lname = $('#lastname').val()
+        console.log(fname)
+        $.ajax({
+          type: "post",
+          url: "http://localhost:3000/retrieve",
+          // dataType: "jsonp",
+        //   contentType: "application/json; charset=UTF-8",
+          crossDomain: true,
+          data: {"firstname": fname,"lastname":lname},
+          success: function (data) {
+            console.log(data)
+            content.push(data)
+            console.log(content)
+          }
+        });
     })
-
+    //FOR PIE GRAPH
     data = {
         datasets: [{
             data: [40, 20, 60, 10, 50, 30],
@@ -55,6 +73,7 @@
         data: data,
 
     });
+
     //FOR LINE CHART
     var data2 = {
         labels: [1, 2, 3, 4, 5],

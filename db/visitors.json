@@ -1,0 +1,222 @@
+[
+    {
+        "name":{
+            "firstname":"jerome",
+            "lastname":"burce"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"josephine",
+            "lastname":"morre"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"john patrick",
+            "lastname":"cabia-an"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"sharmin",
+            "lastname":"avila"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"jonathan",
+            "lastname":"rivas"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"princess joy",
+            "lastname":"duran"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"jane",
+            "lastname":"repollo"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"lorly",
+            "lastname":"sugal"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"lalaine",
+            "lastname":"garrido"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"chervin",
+            "lastname":"tanilon"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"jakeniel",
+            "lastname":"erim"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"redgie",
+            "lastname":"gravador"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"jessa",
+            "lastname":"jalandoni"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"geneva",
+            "lastname":"rivas"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"irish",
+            "lastname":"rufo"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"christian",
+            "lastname":"gigante"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"leonilo",
+            "lastname":"torres"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"mellyne grace",
+            "lastname":"nadila"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"mary grace",
+            "lastname":"triburillo"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"hannah mae",
+            "lastname":"peliño"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"marion jay",
+            "lastname":"balugo"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    },
+    {
+        "name":{
+            "firstname":"chilla jean",
+            "lastname":"cabungcag"
+        },
+        "age":20,
+        "batch":24,
+        "address":"Nasipit, Talamban, Cebu City, Cebu",
+        "visitors":[]
+    }
+]
