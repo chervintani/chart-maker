@@ -1,0 +1,97 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+<body>
+    <div id="divChart">
+        <center>
+            <canvas id="myChart">
+                <p>Failed to display</p>
+            </canvas>
+            <br>
+            <canvas id="myChart2">
+                <p>Failed to display</p>
+            </canvas>
+        </center>
+    </div>
+    <div>
+        <input type="text" placeholder="Value" id="input" />
+        <button type="submit">Submit</button>
+    </div>
+</body>
+<script>
+    var input = document.getElementById("input")
+    $('button').on('click', function () {
+        console.log($('#input').val())
+    })
+
+    data = {
+        datasets: [{
+            data: [40, 20, 60, 10, 50, 30],
+            backgroundColor: [
+                "#2ecc71",
+                "#3498db",
+                "#e74c3c",
+                "#9b59b6",
+                "#f1c40f",
+                "#e74c3c",
+            ],
+        }],
+
+        // These labels appear in the legend and in the tooltips when hovering different arcs
+        labels: [
+            'Red',
+            'Yellow',
+            'Blue',
+            'Green',
+            'Black',
+            'Brown'
+        ]
+    };
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var ctx2 = document.getElementById('myChart2').getContext('2d');
+    var myPieChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: data,
+
+    });
+    //FOR LINE CHART
+    var data2 = {
+        labels: [1, 2, 3, 4, 5],
+        datasets: [
+
+            {
+                label: "My Second dataset",
+                fillColor: "rgba(4, 103, 179,0.2)",
+                strokeColor: "rgba(4, 103, 179,1)",
+                pointColor: "rgba(4, 103, 179,1)",
+                pointStrokeColor: "#000000",
+                pointHighlightFill: "#000000",
+                pointHighlightStroke: "rgba(4, 103, 179,1)",
+                data: [0, 1, 3, 2, 5]
+            }
+        ]
+    };
+    var myLineChart = new Chart(ctx2, {
+        type: 'line',
+        data: data2,
+
+    });
+    Chart.defaults.global.defaultFontFamily = "Comfortaa";
+    Chart.defaults.global.defaultFontSize = 25;
+</script>
+<style>
+    canvas {
+        width: 1000px !important;
+        height: 500px !important;
+    }
+
+    #barChart {
+        background-color: black;
+        border-radius: 6px;
+    }
+
+    #divChart {
+        background-color: lightblue;
+    }
+</style>
