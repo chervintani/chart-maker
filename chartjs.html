@@ -1,108 +1,191 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
 
 <body>
-    <div id="divChart">
-        <center>
-            <canvas id="myChart">
-                <p>Failed to display</p>
-            </canvas>
-            <br>
-            <canvas id="myChart2">
-                <p>Failed to display</p>
-            </canvas>
+    <div class="container">
+        <div id="divChart">
+            <center>
+                <br>
+                <h1>VISITORS EVERY LOCATION PER YEAR</h1>
+                <div class="input-group">
+                    <select class="custom-select" id="selectedBatch">
+                        <!-- <option selected>Choose...</option> -->
+                        <option selected value="Batch 23rd">Batch 23rd</option>
+                        <option value="Batch 24th">Batch 24th</option>
+                        <option value="Batch 25th">Batch 25th</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary" type="button" id="chart1-btn">View Statistics</button>
+                    </div>
+                </div><br>
+                <canvas id="myChart">
+                    <p>Failed to display</p>
+                </canvas><br>
+                <hr /><br>
+                <h1>VISITORS OF A STUDENT PER YEAR</h1>
+
+                <div class="input-group" id="studentInput">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">First and last name</span>
+                    </div>
+                    <input type="text" class="form-control" id="firstname" placeholder="Firstname">
+                    <input type="text" class="form-control" id="lastname" placeholder="Lastname">
+                </div>
+                <br>
+                <button type="button" class="btn btn-outline-primary" id="chart2-btn">View Statistics</button>
+                <br>
+                <canvas id="myChart2">
+                    <p>Failed to display</p>
+                </canvas><br>
+        </div>
         </center>
     </div>
-    <div>
-        <input type="text" placeholder="Value" id="firstname" />
-        <input type="text" placeholder="Value" id="lastname" />
-        <button type="submit">Submit</button>
     </div>
 </body>
+<br>
+<footer class="page-footer font-small blue">
+    <div class="footer-copyright text-center py-3">VISTORS @ 2019
+    </div>
+</footer>
+
+</html>
 <script>
+    var ctx = $("#myChart")[0].getContext('2d');
+    var ctx2 = $("#myChart2")[0].getContext('2d');
     var input = document.getElementById("input")
     var content = []
-    $('button').on('click', function () {
-        
+    $('#myChart').hide()
+    $('#myChart2').hide()
+    $('#chart1-btn').on('click', () => {
+        $('#myChart').show()
+        barChart(ctx)
+        console.log($('#selectedBatch').val())
+    })
+    $('#chart2-btn').on('click', () => {
+
         let fname = $('#firstname').val()
         let lname = $('#lastname').val()
         console.log(fname)
         $.ajax({
-          type: "post",
-          url: "http://localhost:3000/retrieve",
-          // dataType: "jsonp",
-        //   contentType: "application/json; charset=UTF-8",
-          crossDomain: true,
-          data: {"firstname": fname,"lastname":lname},
-          success: function (data) {
-            console.log(data)
-            content.push(data)
-            console.log(content)
-          }
-        });
-    })
-    //FOR PIE GRAPH
-    data = {
-        datasets: [{
-            data: [40, 20, 60, 10, 50, 30],
-            backgroundColor: [
-                "#2ecc71",
-                "#3498db",
-                "#e74c3c",
-                "#9b59b6",
-                "#f1c40f",
-                "#e74c3c",
-            ],
-        }],
-
-        // These labels appear in the legend and in the tooltips when hovering different arcs
-        labels: [
-            'Red',
-            'Yellow',
-            'Blue',
-            'Green',
-            'Black',
-            'Brown'
-        ]
-    };
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var ctx2 = document.getElementById('myChart2').getContext('2d');
-    var myPieChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: data,
-
-    });
-
-    //FOR LINE CHART
-    var data2 = {
-        labels: [1, 2, 3, 4, 5],
-        datasets: [
-
-            {
-                label: "My Second dataset",
-                fillColor: "rgba(4, 103, 179,0.2)",
-                strokeColor: "rgba(4, 103, 179,1)",
-                pointColor: "rgba(4, 103, 179,1)",
-                pointStrokeColor: "#000000",
-                pointHighlightFill: "#000000",
-                pointHighlightStroke: "rgba(4, 103, 179,1)",
-                data: [0, 1, 3, 2, 5]
+            type: "post",
+            url: "http://localhost:3000/retrieve",
+            // dataType: "jsonp",
+            //   contentType: "application/json; charset=UTF-8",
+            crossDomain: true,
+            data: { "firstname": fname, "lastname": lname },
+            success: function (data) {
+                content.push(data)
+                console.log(content)
+                $('#myChart2').show()
+                lineChart(ctx2);
             }
-        ]
-    };
-    var myLineChart = new Chart(ctx2, {
-        type: 'line',
-        data: data2,
+        });
 
-    });
+    })
+
+    function barChart(ctx) {
+        //VISITORS EVERY LOCATION PER YEAR
+        //FOR PIE GRAPH
+        data = {
+            datasets: [{
+                data: [40, 20, 60, 10, 50, 30],
+                //FOR THE DATA YOU CAN PUT HERE THE NUMBER OF VISITORS IN ONE LOCATION I.E (40 Visitors in Cebu)
+            }],
+            // These labels appear in the legend and in the tooltips when hovering different arcs
+            // YOU CAN PUT THE PLACES HERE AS LABELS
+            labels: [
+                'Cebu',
+                'Leyte',
+                'Negros Occidental',
+                'Siquijor',
+                'Surigao',
+                'Masbate'
+            ]
+        };
+
+        var chart = new Chart(ctx, {
+            type: 'pie',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    colorschemes: {
+                        scheme: 'office.Solstice6'
+                    }
+                },
+                legend: {
+                    position: "bottom"
+                },
+                layout: {
+                    padding: {
+                        left: 40,
+                        right: 40,
+                        top: 20
+                    }
+                },
+            }
+        });
+    }
+
+    function lineChart(ctx2) {
+        //VISITORS OF A CERTAIN STUDENT PER YEAR
+        //FOR LINE CHART
+
+        var gradientStroke = ctx2.createLinearGradient(1200, 0, 100, 0);
+        gradientStroke.addColorStop(0, '#ff5757');
+        gradientStroke.addColorStop(1, '#578cff');
+
+        var myChart = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ["1st Year", "2nd Year", "3rd Year", "4th Year"],
+                datasets: [{
+                    label: "Chervin Tanilon",
+                    borderColor: gradientStroke,
+                    pointRadius: 0,
+                    fill: true,
+
+                    backgroundColor: gradientStroke,
+                    borderWidth: 1,
+                    data: [10, 5, 7, 2] //I CAN PUT HERE THE N VISITORS OF A CERTAIN STUDENT EVERY YEAR AS ELEMENT
+                }]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: "bottom"
+                },
+                layout: {
+                    padding: {
+                        left: 40,
+                        right: 100,
+                        top: 20
+                    }
+                }
+            }
+        });
+    }
+
     Chart.defaults.global.defaultFontFamily = "Comfortaa";
     Chart.defaults.global.defaultFontSize = 25;
+
 </script>
 <style>
     canvas {
-        width: 1000px !important;
-        height: 500px !important;
+        /* width: 1000px !important;
+        height: 500px !important; */
+    }
+
+    body {
+        font-family: 'Comfortaa'
     }
 
     #barChart {
@@ -110,7 +193,16 @@
         border-radius: 6px;
     }
 
-    #divChart {
+    /* #divChart {
         background-color: lightblue;
+    } */
+    footer {
+        background: whitesmoke
+    }
+
+    hr {
+        height: 10px;
+        border: 0;
+        box-shadow: 0 10px 10px -10px #8c8b8b inset;
     }
 </style>
