@@ -27,7 +27,7 @@ mongoose.connect(db.DB, { useNewUrlParser: true, useUnifiedTopology: true, useCr
 
 
 app.get('/',function(req,res) {
-  res.sendFile(__dirname + '/chartjs.html');
+  res.sendFile(__dirname + '/chart.html');
   });
 
 app.post('/retrieve',(req,res)=>{
